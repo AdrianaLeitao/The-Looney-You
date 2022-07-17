@@ -6,7 +6,6 @@ class Game {
         this.height = height;
         this.player = player;
         this.villain = villain;
-        this.bgImage = new Image();
         this.obstacles = [];
         this.obstacles1 = [];
         this.interval = null;
@@ -17,6 +16,15 @@ class Game {
         this.interval = setInterval(this.updateGameArea, 20);
         this.gameRunning = true;
     }
+
+    reset = () => {
+        this.player.x = 0;
+        this.player.y = 110;
+        this.frames = 0;
+        this.obstacles = [];
+        this.obstacles1 = [];
+        this.start();
+    };
 
     drawBg(){
         this.bgImage.src = '../docs/assets/images/2.jpg';
