@@ -1,13 +1,16 @@
 class Villain {
-    constructor(width, height, color, x, y, ctx){
+    constructor(width, height, x, y, ctx){
         this.width = width;
         this.height = height;
-        this.color = color;
         this.x = 890;
         this.y = 120;
         this.ctx = ctx;
         this.speedX = 1;
         this.speedY = 1;
+        const img = new Image();
+        img.addEventListener('load', () => {});
+        img.src = "../docs/assets/images/img5.png";
+        this.img = img;
     }
    
     left() {
@@ -28,6 +31,6 @@ class Villain {
     
     drawVillain() {
         this.ctx.fillStyle = this.color;
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
+        this.ctx.fillRect(this.img, this.x, this.y, this.width, this.height);
     }
 }

@@ -90,6 +90,7 @@ class Game {
       }
        
     }
+
     updateVillain() {
         // Chase horizontally
       if(this.villain.x < this.player.x){
@@ -112,9 +113,7 @@ class Game {
         this.ctx.drawImage(this.bgImg, 0, 0, this.cWidth, this.cHeight);
     }
 
-    checkWin() {
-
-    }
+    checkWin() {}
 
 
     updateGameArea = () => {

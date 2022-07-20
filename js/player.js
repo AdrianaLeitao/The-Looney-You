@@ -1,8 +1,7 @@
 class Player {
-    constructor(width, height, color, x, y, ctx) {
+    constructor(width, height, x, y, ctx) {
         this.width = width;
         this.height = height;
-        this.color = color;
         this.x = x;
         this.y = y;
         this.vx = 0;
@@ -13,6 +12,10 @@ class Player {
         this.carrotBar = new Image();
         this.speedX = 0;
         this.speedY = 0;
+        const img = new Image();
+        img.addEventListener('load', () => {});
+        img.src = "../docs/assets/images/bunny.png";
+        this.img = img;
     }
 
     newPos() {
@@ -20,17 +23,17 @@ class Player {
         this.y += this.speedY;
     }
 
-    /* drawLifeBar() {
+    drawLifeBar() {
         this.ctx.fillStyle = 'orange';
         this.ctx.fillRect(10, 10, this.life, 50);
 
         this.carrotBar.src = "../docs/assets/images/barra-vida.jpg";
         this.ctx.drawImage(this.carrotBar, 0, 0, 250, 70);
-    } */
+    }
 
     drawPlayer() {
         this.ctx.fillStyle = this.color;
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
+        this.ctx.fillRect(this.img, this.x, this.y, this.width, this.height);
     }
 
     left() {

@@ -1,38 +1,4 @@
-/* @font-face {
+@font-face {
     font-family: 'Looney';
     src: url(/docs/assets/fonts/Looney\ Tunes\ Tilt\ BT-FONTSMAGAZINE.ttf) format(truetype);
 };
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Looney', Helvetica, sans-serif;
-    background-image: url('/docs/assets/images/capa.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-
-#title {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#canvas {
-    background-image: url('/docs/assets/images/capa.jpg');
-    background-size: cover;
-    position: absolute;
-}
-
-.introdution {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}  */
