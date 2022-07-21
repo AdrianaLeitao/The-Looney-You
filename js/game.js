@@ -62,7 +62,6 @@ class Game {
     stop() {
         clearInterval(this.interval);
         this.isRunning = false;
-        //introSound.pause();
     }
 
     updateObstacles(){
