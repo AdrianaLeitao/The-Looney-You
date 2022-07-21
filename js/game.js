@@ -4,7 +4,6 @@ class Game {
         this.ctx = ctx;
         this.width = width;
         this.height = height;
-        this.bgImg = new Image();
         this.player = player;
         this.villain = villain;
         this.obstacles = [];
@@ -12,6 +11,24 @@ class Game {
         this.isRunning = false;
         this.bonusLife = [];
         this.speed = 1
+        this.victory = null;
+
+        const bgImg = new Image();
+        bgImg.addEventListener('load', () => {});
+        bgImg.src = "./docs/assets/images/relva.jpg";
+        this.bgImg = bgImg;
+
+        const gameOverImg = new Image();
+        gameOverImg.addEventListener('load', () => {});
+        gameOverImg.src = "./docs/assets/images/gameover.jpg";
+        this.gameOverImg = gameOverImg;
+
+        const winImg = new Image();
+        winImg.addEventListener('load', () => {});
+        winImg.src = "./docs/assets/images/win2.jpg";
+        this.winImg = winImg;
+
+
     }
     
     start() {
@@ -24,6 +41,13 @@ class Game {
         this.player.y = 110;
         this.frames = 0;
         this.obstacles = [];
+        this.bonusLife = [];
+        this.speed = 1
+        this.victory = null;
+        this.villain = new Villain(40, 80, this.ctx)
+        this.bgImg.src = "./docs/assets/images/relva.jpg";
+        this.gameOverImg.src = "./docs/assets/images/gameover.jpg";
+        this.winImg.src = "./docs/assets/images/win2.jpg"
         this.start();
     }
 
@@ -44,7 +68,7 @@ class Game {
 
         this.frames += 1;
 
-        if(this.frames % 200 === 0) {
+        if(this.frames % 240 === 0) {
 
             let minHeight = 20;
             let maxHeight = 50;
@@ -55,21 +79,22 @@ class Game {
         }
     }
 
+
+
     updateBonus() {
         for(let i = 0; i < this.bonusLife.length; i++) {
             this.bonusLife[i].draw();
         }
 
-        this.frames += 1;
 
         if(this.frames % 180 === 0) {
 
-            let minHeight = 20;
-            let maxHeight = 50;
-            let height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
-            let randomX = Math.random() * this.width;
-            let randomY= Math.random() * this.height;
-            this.bonusLife.push(new BonusLife(height, height, this.ctx, randomX, randomY));
+            /* let minHeight = 20;
+            let maxHeight = 50; */
+           /*  let height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight); */
+            let randomX =Math.floor( Math.random() * this.width);
+            let randomY= Math.floor(Math.random() * this.height);
+            this.bonusLife.push(new BonusLife(30, 30, this.ctx, randomX, randomY));
         }
     }
 
@@ -77,9 +102,18 @@ class Game {
         const crashed = this.obstacles.some((obstacle, index) => {
             if(this.player.crashWith(obstacle)) {
                 this.obstacles.splice(index, 1);
-                this.player.life -= 5
+                this.player.life -= 1
             }
         return this.player.crashWith(obstacle);
+    });
+    }
+
+    checkBonus = () => {
+        this.bonusLife.some((bonus, index) => {
+            if(this.player.crashWith(bonus)) {
+                this.bonusLife.splice(index, 1);
+                this.player.life += 1
+            }
     });
     }
 
@@ -87,8 +121,8 @@ class Game {
     checkGameOver = () => {
       if(this.player.crashWith(this.villain)){
         this.stop()
+        this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height)
       }
-       
     }
 
     updateVillain() {
@@ -109,23 +143,40 @@ class Game {
     } 
 
     drawBg() {
-        this.bgImg.src = "";
-        this.ctx.drawImage(this.bgImg, 0, 0, this.cWidth, this.cHeight);
+        this.ctx.drawImage(this.bgImg, 0, 0, this.width, this.height);
     }
 
-    checkWin() {}
+    updateVictory(){
+        if(this.frames === 300){
+            this.victory = new Victory(40, 80, this.ctx)
+        }
+        if(this.victory){
+            this.victory.draw()
+        }
+    }
+
+    checkWin() {
+        if(this.victory && this.player.crashWith(this.victory)){
+            this.stop()
+            this.ctx.drawImage(this.winImg, 0, 0, this.width, this.height)
+        }
+    }
 
 
     updateGameArea = () => {
         this.clear();
-        //this.drawBackground();
+        this.drawBg();
         this.updateBonus();
         this.updateObstacles();
-        this.checkGameOver();
+        this.updateVictory()
         this.checkObstacles();
         this.updateVillain();
         this.player.newPos();
         this.player.drawPlayer();
+        this.player.drawLifeBar()
         this.villain.drawVillain();
+        this.checkBonus()
+        this.checkWin();
+        this.checkGameOver();
     }
 }

@@ -1,18 +1,16 @@
-class Villain {
-    constructor(width, height, ctx){
+class Victory {
+    constructor(width, height, ctx) {
         this.width = width;
         this.height = height;
-        this.x = 890;
-        this.y = 120;
         this.ctx = ctx;
-        this.speedX = 1;
-        this.speedY = 1;
+        this.x = 970;
+        this.y = 250;
         const img = new Image();
         img.addEventListener('load', () => {});
-        img.src = "./docs/assets/images/img5.png";
+        img.src = "./docs/assets/images/lola.jpg";
         this.img = img;
     }
-   
+
     left() {
         return this.x;
       }
@@ -28,8 +26,9 @@ class Villain {
       bottom() {
         return this.y + this.height;
       }
-    
-    drawVillain() {
-      this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+
+    draw() {
+        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
-}
+
+} 

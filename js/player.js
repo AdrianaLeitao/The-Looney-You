@@ -8,32 +8,47 @@ class Player {
         this.vy = 1;
         this.ctx = ctx;
         this.pull = 0;
-        this.life = 80;
-        this.carrotBar = new Image();
+        this.life = 10;
         this.speedX = 0;
         this.speedY = 0;
         const img = new Image();
         img.addEventListener('load', () => {});
-        img.src = "../docs/assets/images/bunny.png";
+        img.src = "./docs/assets/images/bunny.png";
         this.img = img;
+        const heartImg = new Image();
+        heartImg.addEventListener('load', () => {});
+        heartImg.src = "./docs/assets/images/heart.jpg";
+        this.heartImg = heartImg;
+
+      
     }
 
     newPos() {
-        this.x += this.speedX;
-        this.y += this.speedY;
+      this.x += this.speedX;
+      this.y += this.speedY;
+
+      if(this.x <= 0) {
+        this.x = 0
+      } else if(this.x + this.width >= 990){
+        this.x = 990 - this.width;
+      } else if(this.y <= 0){
+        this.y = 0;
+      } else if(this.y + this.height >= 570){
+        this.y = 570 - this.height
+      }
     }
 
     drawLifeBar() {
-        this.ctx.fillStyle = 'orange';
-        this.ctx.fillRect(10, 10, this.life, 50);
+      for (let i= 0; i < Math.floor(this.life / 2); i++){
+        this.ctx.drawImage(this.heartImg, 800 + i * 30, 50, 30, 30)
+      }
 
-        this.carrotBar.src = "../docs/assets/images/barra-vida.jpg";
-        this.ctx.drawImage(this.carrotBar, 0, 0, 250, 70);
+       /*  this.carrotBar.src = "./docs/assets/images/lifeBar.jpg";
+        this.ctx.drawImage(this.carrotBar, 0, 0, 150, 70); */
     }
 
     drawPlayer() {
-        this.ctx.fillStyle = this.color;
-        this.ctx.fillRect(this.img, this.x, this.y, this.width, this.height);
+      this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
     left() {
