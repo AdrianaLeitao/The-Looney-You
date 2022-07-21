@@ -3,12 +3,9 @@
     src: url(../docs/assets/fonts/Looney\ Tunes\ Tilt\ BT-FONTSMAGAZINE.ttf) format(truetype);
 };
 
-/* #canvas-id {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-} */
+#my-canvas {
+    
+}
 
 #start{
     display: flex;
@@ -26,7 +23,7 @@
     color: black;
 }
 
-#btn-try-again{
+/* #btn-try-again{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -40,4 +37,4 @@
     box-shadow: 2px 2px 0px 0px;
     background-color: lightgrey;
     color: black;
-}
+} */
