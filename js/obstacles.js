@@ -7,7 +7,7 @@ class Obstacles {
         this.y = y;
         const img = new Image();
         img.addEventListener('load', () => {});
-        img.src = "../docs/assets/images/pedra.png";
+        img.src = "./docs/assets/images/pedra.png";
         this.img = img;
     }
     
