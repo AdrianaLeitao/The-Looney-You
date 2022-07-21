@@ -12,6 +12,7 @@ class Game {
         this.bonusLife = [];
         this.speed = 1
         this.victory = null;
+        this.sound = new Audio('./docs/assets/sounds/intro.mp3');
 
         const bgImg = new Image();
         bgImg.addEventListener('load', () => {});
@@ -37,7 +38,7 @@ class Game {
     start() {
         this.interval = setInterval(this.updateGameArea, 1000 / 60);
         this.isRunning = true;
-        //introSound.play()
+        this.sound.play();
     }
 
     reset = () => {
@@ -177,5 +178,6 @@ class Game {
         this.checkBonus()
         this.checkWin();
         this.checkGameOver();
+        this.sound();
     }
 }

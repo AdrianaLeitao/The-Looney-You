@@ -8,7 +8,7 @@ class Player {
         this.vy = 1;
         this.ctx = ctx;
         this.pull = 0;
-        this.life = 10;
+        this.life = 8;
         this.speedX = 0;
         this.speedY = 0;
         const img = new Image();
