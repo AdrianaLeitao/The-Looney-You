@@ -4,9 +4,9 @@ const ctx = canvas.getContext('2d');
 const cWidth = canvas.width;
 const cHeight = canvas.height;
 
-const player = new Player(40, 80, 1, 400, ctx);
+const player = new Player(50, 100, 1, 400, ctx);
 
-let villain = new Villain(50, 80, ctx);
+let villain = new Villain(60, 80, ctx);
 
 const bgImg = new Image();
 bgImg.addEventListener('load', () => {

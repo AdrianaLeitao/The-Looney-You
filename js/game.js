@@ -144,7 +144,7 @@ class Game {
 
     updateVictory(){
         if(this.frames === 400){
-            this.victory = new Victory(40, 80, this.ctx)
+            this.victory = new Victory(50, 100, this.ctx)
         }
         if(this.victory){
             this.victory.draw()

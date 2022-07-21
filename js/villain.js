@@ -9,7 +9,7 @@ class Villain {
         this.speedY = 1;
         const img = new Image();
         img.addEventListener('load', () => {});
-        img.src = "./docs/assets/images/img5.png";
+        img.src = "./docs/assets/images/img41.png";
         this.img = img;
     }
    
