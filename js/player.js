@@ -17,7 +17,7 @@ class Player {
         this.img = img;
         const heartImg = new Image();
         heartImg.addEventListener('load', () => {});
-        heartImg.src = "./docs/assets/images/heart.jpg";
+        heartImg.src = "./docs/assets/images/heart1.png";
         this.heartImg = heartImg;
 
       
@@ -39,12 +39,9 @@ class Player {
     }
 
     drawLifeBar() {
-      for (let i= 0; i < Math.floor(this.life / 2); i++){
-        this.ctx.drawImage(this.heartImg, 800 + i * 30, 50, 30, 30)
+      for (let i= 0; i < Math.floor(this.life / 4); i++){
+        this.ctx.drawImage(this.heartImg, 50 + i * 30, 20, 30, 30);
       }
-
-       /*  this.carrotBar.src = "./docs/assets/images/lifeBar.jpg";
-        this.ctx.drawImage(this.carrotBar, 0, 0, 150, 70); */
     }
 
     drawPlayer() {

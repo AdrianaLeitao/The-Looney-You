@@ -6,7 +6,7 @@ const cHeight = canvas.height;
 
 const player = new Player(40, 80, 1, 400, ctx);
 
-let villain = new Villain(40, 80, ctx);
+let villain = new Villain(50, 80, ctx);
 
 const bgImg = new Image();
 bgImg.addEventListener('load', () => {
@@ -14,7 +14,7 @@ bgImg.addEventListener('load', () => {
 })
 bgImg.src = './docs/assets/images/capa.jpg';
 
-const introSound = new Audio('./docs/assets/sounds/intro.mp3');
+//const introSound = new Audio('./docs/assets/sounds/intro.mp3');
 
 
 let game;
@@ -53,13 +53,6 @@ document.addEventListener("keydown", (e) => {
         player.speedX += 1;
 
       } else player.x = cWidth - player.width
-      break;
-    case "Space":
-        if (player.y + player.width <= cWidth) {
-          player.speedY -= 1;
-        } else {
-          player.speedY = 0
-        }
       break;
   }
 });

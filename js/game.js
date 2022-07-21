@@ -28,14 +28,18 @@ class Game {
         winImg.src = "./docs/assets/images/win2.jpg";
         this.winImg = winImg;
 
+        //const introSound = new Audio('./docs/assets/sounds/intro.mp3');
+        //introSound.loop = true;
+
 
     }
     
     start() {
         this.interval = setInterval(this.updateGameArea, 1000 / 60);
         this.isRunning = true;
+        //introSound.play()
     }
-    
+
     reset = () => {
         this.player.x = 0;
         this.player.y = 110;
@@ -58,11 +62,11 @@ class Game {
     stop() {
         clearInterval(this.interval);
         this.isRunning = false;
+        introSound.pause();
     }
 
     updateObstacles(){
         for(let i = 0; i < this.obstacles.length; i++) {
-            //this.obstacles[i] -= 1;
             this.obstacles[i].draw();
         }
 
@@ -88,13 +92,9 @@ class Game {
 
 
         if(this.frames % 180 === 0) {
-
-            /* let minHeight = 20;
-            let maxHeight = 50; */
-           /*  let height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight); */
             let randomX =Math.floor( Math.random() * this.width);
             let randomY= Math.floor(Math.random() * this.height);
-            this.bonusLife.push(new BonusLife(30, 30, this.ctx, randomX, randomY));
+            this.bonusLife.push(new BonusLife(30, 60, this.ctx, randomX, randomY));
         }
     }
 
@@ -147,7 +147,7 @@ class Game {
     }
 
     updateVictory(){
-        if(this.frames === 300){
+        if(this.frames === 600){
             this.victory = new Victory(40, 80, this.ctx)
         }
         if(this.victory){

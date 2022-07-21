@@ -3,11 +3,11 @@ class Victory {
         this.width = width;
         this.height = height;
         this.ctx = ctx;
-        this.x = 970;
-        this.y = 250;
+        this.x = 940;
+        this.y = 150;
         const img = new Image();
         img.addEventListener('load', () => {});
-        img.src = "./docs/assets/images/lola.jpg";
+        img.src = "./docs/assets/images/lola.png";
         this.img = img;
     }
 
