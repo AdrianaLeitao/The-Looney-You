@@ -3,9 +3,9 @@
     src: url(../docs/assets/fonts/Looney\ Tunes\ Tilt\ BT-FONTSMAGAZINE.ttf) format(truetype);
 };
 
-#my-canvas {
+/* #my-canvas {
     
-}
+} */
 
 #start{
     display: flex;

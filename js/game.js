@@ -28,11 +28,6 @@ class Game {
         winImg.addEventListener('load', () => {});
         winImg.src = "./docs/assets/images/win2.jpg";
         this.winImg = winImg;
-
-        //const introSound = new Audio('./docs/assets/sounds/intro.mp3');
-        //introSound.loop = true;
-
-
     }
     
     start() {
@@ -48,6 +43,7 @@ class Game {
         this.obstacles = [];
         this.bonusLife = [];
         this.speed = 1
+        this.player.life = 8;
         this.victory = null;
         this.villain = new Villain(40, 80, this.ctx)
         this.bgImg.src = "./docs/assets/images/relva.jpg";
@@ -72,7 +68,7 @@ class Game {
 
         this.frames += 1;
 
-        if(this.frames % 180 === 0) {
+        if(this.frames % 60 === 0) {
 
             let minHeight = 20;
             let maxHeight = 50;
@@ -91,7 +87,7 @@ class Game {
         }
 
 
-        if(this.frames % 600 === 0) {
+        if(this.frames % 180 === 0) {
             let randomX =Math.floor( Math.random() * this.width);
             let randomY= Math.floor(Math.random() * this.height);
             this.bonusLife.push(new BonusLife(30, 60, this.ctx, randomX, randomY));
@@ -120,8 +116,8 @@ class Game {
 
     checkGameOver = () => {
       if(this.player.crashWith(this.villain)){
-        this.stop()
-        this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height)
+        this.stop();
+        this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
       }
     }
 

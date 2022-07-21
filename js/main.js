@@ -12,7 +12,7 @@ const bgImg = new Image();
 bgImg.addEventListener('load', () => {
   ctx.drawImage(bgImg, 0, 0, cWidth, cHeight)
 })
-bgImg.src = './docs/assets/images/capa.jpg';
+bgImg.src = './docs/assets/images/capa1.jpg';
 
 //const introSound = new Audio('./docs/assets/sounds/intro.mp3');
 
