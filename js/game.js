@@ -99,12 +99,11 @@ class Game {
     }
 
     checkObstacles = () => {
-        const crashed = this.obstacles.some((obstacle, index) => {
+        this.obstacles.some((obstacle, index) => {
             if(this.player.crashWith(obstacle)) {
                 this.obstacles.splice(index, 1);
                 this.player.life -= 1
             }
-        return this.player.crashWith(obstacle);
     });
     }
 
