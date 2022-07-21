@@ -91,7 +91,7 @@ class Game {
         }
 
 
-        if(this.frames % 180 === 0) {
+        if(this.frames % 300 === 0) {
             let randomX =Math.floor( Math.random() * this.width);
             let randomY= Math.floor(Math.random() * this.height);
             this.bonusLife.push(new BonusLife(30, 60, this.ctx, randomX, randomY));
@@ -99,11 +99,12 @@ class Game {
     }
 
     checkObstacles = () => {
-        this.obstacles.some((obstacle, index) => {
+        const crashed = this.obstacles.some((obstacle, index) => {
             if(this.player.crashWith(obstacle)) {
                 this.obstacles.splice(index, 1);
                 this.player.life -= 1
             }
+        return this.player.crashWith(obstacle);
     });
     }
 
@@ -146,7 +147,7 @@ class Game {
     }
 
     updateVictory(){
-        if(this.frames === 600){
+        if(this.frames === 400){
             this.victory = new Victory(40, 80, this.ctx)
         }
         if(this.victory){
