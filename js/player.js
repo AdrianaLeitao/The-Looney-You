@@ -39,7 +39,7 @@ class Player {
     }
 
     drawLifeBar() {
-      for (let i= 0; i < Math.floor(this.life / 3); i++){
+      for (let i= 0; i < Math.floor(this.life / 2); i++){
         this.ctx.drawImage(this.heartImg, 50 + i * 30, 20, 30, 30);
       }
     }

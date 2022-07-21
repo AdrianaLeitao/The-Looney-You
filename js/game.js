@@ -71,7 +71,7 @@ class Game {
 
         this.frames += 1;
 
-        if(this.frames % 240 === 0) {
+        if(this.frames % 180 === 0) {
 
             let minHeight = 20;
             let maxHeight = 50;
@@ -90,7 +90,7 @@ class Game {
         }
 
 
-        if(this.frames % 300 === 0) {
+        if(this.frames % 600 === 0) {
             let randomX =Math.floor( Math.random() * this.width);
             let randomY= Math.floor(Math.random() * this.height);
             this.bonusLife.push(new BonusLife(30, 60, this.ctx, randomX, randomY));
