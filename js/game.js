@@ -13,6 +13,7 @@ class Game {
         this.speed = 1
         this.victory = null;
         this.sound = new Audio('./docs/assets/sounds/intro.mp3');
+        this.sound.loop = true;
 
         const bgImg = new Image();
         bgImg.addEventListener('load', () => {});
