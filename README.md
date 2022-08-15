@@ -17,7 +17,7 @@
 <br>
 <h3><strong>Difficulties:</strong></h3>
 <ul>
-<li>The challenges were many, but after 3 intense weeks of studying and with the knowledge acquired in the bootcamp, i managed to develop a simple and objective game.</li>
+<li>The challenges were many, there were 3 intense weeks of study and stress, but with the knowledge acquired in the bootcamp, i managed to develop my first game.</li>
 <li>I had a lot of support and help from my colleagues and teachers to get it done.</li>
 <li>The steps were many! The idea was the easiest part, then came the hard parts, the design concept, the organization of the folders and files, and of course the code.</li>
 </ul>
