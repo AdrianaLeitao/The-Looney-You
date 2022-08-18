@@ -25,11 +25,11 @@
 <br>
 <br>
 <h1 align="center" dir="auto">
-<a rel="noopener noreferrer" href="https://github.com/AdrianaLeitao/The-Looney-You" target="_blank"><strong>TRY ME!...if you want ;)</strong></a></h1>
+<a rel="noopener noreferrer" href="https://adrianaleitao.github.io/The-Looney-You/" target="_blank"><strong>TRY ME!...if you want ;)</strong></a></h1>
 <br>
 <br>
 <p>
-<a rel="noopener noreferrer" href="https://github.com/AdrianaLeitao/The-Looney-You" target="_blank">
+<a rel="noopener noreferrer" href="https://adrianaleitao.github.io/The-Looney-You/" target="_blank">
 <img src="./docs/assets/images/capa1.jpg" style="max-width: 100%;"> </a></p>
 <br>
 <h3><strong>Controls:</strong></h3>
